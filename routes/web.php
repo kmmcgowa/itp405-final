@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/login', 'LoginController@index');
+Route::post('/login', 'LoginController@handle');
+
+Route::group(['middleware'=>'loggedin'], function(){
+
+	Route::get('/photos', 'PhotoController@index');
+
+	Route::get('/app', function(){
+		return 'hello world';
+	});
+
+});
