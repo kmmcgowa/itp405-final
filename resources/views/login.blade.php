@@ -4,9 +4,27 @@
     <meta charset="utf-8">
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style type="text/css">
+      body {
+        background: linear-gradient(#B2FEFA, #0ED2F7);
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
+      @if (count($errors) > 0)
+        <div class="alert alert-danger" role="alert">
+          <ul>
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+      @endif
       <h1>Login</h1>
       <form action="/login" method="post">
         {{ csrf_field() }}

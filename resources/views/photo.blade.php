@@ -19,7 +19,6 @@
     	width: 100vw;
     	height: 40px;
     	background-color: rgba(255,255,255,.85);
-    	z-index: 100;
     }
     ul{
     	list-style: none;
@@ -32,37 +31,32 @@
     .container{
     	padding-top: 40px;
     }
-    .imgcont{
-    	position: relative;
-    }
     h2{
-			position: absolute;
-			margin: 5% 5%;
 			color: #fff;
-			text-shadow: 3px 3px 2px #333;
     }
     img {
     	width: 100%;
     	margin: 25px 0;
+    }
+    p{
+    	padding-bottom: 5%;
     }
   </style>
 </head>
 <body>
 	<nav>
 		<ul>
+			<li><a href="/photos">Photos</a></li>
 			<li><a href="/create/photo">Add new Photo</a></li>
 			<li><a href="/logout">Logout</a></li>
 		</ul>
 	</nav>
 	<div class="container">
-	@foreach($photos as $photo)
-		<a href="/photo/{{$photo->id}}">
-			<div class="imgcont">
-				<h2>{{$photo->title}}</h2>
-				<img src="{{$photo->image}}" alt="{{$photo->description}}">
-			</div>
-		</a>
-	@endforeach
+		<div class="imgcont">
+			<h2>{{$photo->title}}</h2>
+			<img src="{{$photo->image}}" alt="{{$photo->description}}">
+			<p>{{$photo->description}}</p>
+		</div>
 	</div>
 </body>
 </html>
